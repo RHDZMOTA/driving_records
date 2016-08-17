@@ -1,0 +1,85 @@
+#from pandas import dataframe
+from get_time import get_time
+
+
+def select_route():
+    '''
+    The function select_route() ask to the user to input the route key from
+    available_routs and returns it. 
+    
+    Use as following:
+    >> route = select_route() 
+    '''
+    available_routes = {'1':'home_university_p','2':'university_home_p'}
+    print('\nFormat as key:value')
+    for k,v in available_routes.items():
+        print(k,":",v)
+    while True:
+        route_key = input('\nPlease choose the route key: ')
+        if route_key in available_routes:
+            break
+        else:
+            print('Invalid selection.')
+    return route_key
+
+def select_weather():
+    '''
+    The select_weather() functions shows the possible general conditions for the weather
+    during the travel; records and returns user's choice. 
+    
+    Use as following:
+    >> cond = select_weather()
+    '''
+    possible_cond = {'1':'Light Rain','2':'No Rain','3':'Heavy Rain'}
+    print('\nFormat as key:value')
+    for k,v in possible_cond.items():
+        print(k,":",v)
+    while True:
+        cond_key = input('\nPlease choose the general weather condition key: ')
+        if cond_key in possible_cond:
+            break
+        else:
+            print('Invalid selection.')
+    return cond_key
+
+def add_data(route,t_begin,t_end,cond):
+    '''
+    The function add_data() adds the most recent record to file: data.csv
+    
+    Use as following:
+    >> add_data(route,t_begin,t_end,cond)
+    '''
+    # Prepare data... 
+    r = route
+    date = t_begin.strftime('%d-%m-%Y')
+    day_week = str(t_begin.weekday())
+    t0 = float(t_begin.hour) + float(t_begin.minute) / 60 + float(t_begin.second) / 60 ** 2
+    t1 = float(t_end.hour)   + float(t_end.minute) / 60   + float(t_end.second) / 60 ** 2
+    delta = t1 - t0
+    c = cond
+    # create dataframe
+    print(r,date,day_week,t0,t1,delta,c)
+    # add to data.csv file
+    
+
+def main():
+    # Route selection process
+    route = select_route()
+    
+    # Initialize and end record.
+    input('\nPress enter to start recording.')
+    t_begin = get_time()
+    input('\nRecording... Press enter to stop.')
+    t_end = get_time()
+    
+    # Add weather conditions.
+    cond = select_weather()
+    
+    # Add the data and closure
+    print('\nOkay then, we are good to go.')
+    print('Closing...')
+    add_data(route,t_begin,t_end,cond)
+    print('\nDone.')
+
+
+main()
