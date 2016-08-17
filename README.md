@@ -4,24 +4,57 @@
 
 This personal proyect aims to determine the best "driving time" for specific routes by using empirical data feed to a simple neural netrwork. 
 
+### Instructions
+
+This instructions are mainly for anyone who easily forgets what he/she has done (myself included). 
+
+To run this scripts in any android device:
+
+1. Download GNURoot Debian from GooglePlay.
+2. Download GNURoot Octave from GooglePlay.
+3. Open and install the app from step 1. This will install a linux distro (Debian Jessy) with a fake root into Android. 
+4. Open and install the app from step 2. This will provide you with Octave (a MATLAB-like program). 
+5. Close all...
+6. Open the app from step 1 and run _apt-get update_ 
+7. Install python3: _apt-get install python3_
+8. Install pandas and numpy: _pip install numpy_ (and so on...)
+9. Download Termux app from GooglePlay.
+10. Open Termux and type _apt-get update && upgrade_
+11. Install Git: _apt-get install git_
+12. Now you can clone or make git-directories (see "**download or clone this repository**")
+13. Follow the instructions in **"To run in a debian distro (linux)"**.
+
+Download or clone this repository.
+1. 
+
+To run in a debian distro (linux):
+0. You need installed python3  
+1. Type in console: apt-get update
+2. Go to your directory: cd /go_to_your_directory
+3. Enjoy.
+    - To add new data, type in console: sh ./log_data.sh
+    - To see analyitcs: unavailable
+    - To ask the neural network for a particular value: unavailable
+    - To see predictions from the neural network: unavailable
+
 ### Dataset
 
-* data.csv: contains the empirical data in a .csv file. 
+* **data.csv**: contains the empirical data in a .csv file. 
 
 #### Variables
 List and description of the variables (columns) in data.csv
 
-* date: text day in format dd-mm-yyyy 
-* day_week: day of the week as a number (see **day_week** section)
-* id_route: id of the path or route taken (see **routes** section).
-* t0: departing time measured in hours.
-* tf: Arriving time measured in houres. 
-* delta: t0 - tf 
-* cond: id of the general weather condition (see **cond** section)
+* **date**: text day in format dd-mm-yyyy 
+* **day_week**: day of the week as a number (see **day_week** section)
+* **id_route**: id of the path or route taken (see **routes** section).
+* **t0**: departing time measured in hours.
+* **tf**: Arriving time measured in houres. 
+* **delta**: t0 - tf 
+* **cond**: id of the general weather condition (see **cond** section)
 
 #### day_week
 
-The day of the week i.e. _Mon, Tue, Wed, Thu, Fri, Sat, Sun_ as 0,1,2,3,4,5,6.
+The day of the week i.e. _Mon, Tue, Wed, Thu, Fri, Sat, Sun_ --> _0, 1, 2, 3, 4, 5, 6_.
 
 #### id_route
 Variable that specifies the route taken.
@@ -33,24 +66,32 @@ Variable that specifies the route taken.
 #### Cond
 Variable that describes the general weather condition.
 
-* 1:"light rain"
-* 2:"no rain"
-* 3:"heavy rain"
+* **1:"light rain"**
+* **2:"no rain"**
+* **3:"heavy rain"**
 
 ### Scripts
 
-* log_data.sh: not available
-* log_data.py: script used to log new data into data.csv	
-* get_time.py: contains the functions get_time() and show_timezones()
-* data_cleaning.py: contains the functions load_data() and data_cleaning()
-    - **load_data()** reads the data.csv and returns a pandas dataframe.
-    - **data_cleaning()** transforms the dataframe from load_data() into a more useful dataset.	
-* data_analysis.py: not available
-* neural_network.py: not available
+#### Add and remove datapoints
+* **log_data.sh**: bash script to facilitate running the program.
+* **log_data.py**: script used to log new data into data.csv	
+* **get_time.py**: contains the functions get_time() and show_timezones()
+    - *get_time()* returns the date and time for MX's timezone.
+    - *show_timezones()* prints the available timezones in pytz package
+* **data_cleaning.py**: contains the functions load_data() and data_cleaning()
+    - *load_data()* reads the data.csv and returns a pandas dataframe.
+    - *data_cleaning()* transforms the dataframe from load_data() into a more useful dataset.
+
+#### Statistical analysis	
+* **data_analysis.py**: not available
+
+#### Artificial Intelligence 
+* **neural_network.py**: not available
 
 ### To do list
 
-* Complete data_cleaning() function in data_cleaning.py file
+* Complete _add_data()_ function from log_data.py script.
+* Complete _data_cleaning()_ function from data_cleaning.py script
 * Code data_analyisis.py script.
 * Code neural_network.py script.
 
