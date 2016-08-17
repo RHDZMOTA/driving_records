@@ -1,5 +1,6 @@
 #from pandas import dataframe
 from get_time import get_time
+import get_variables as gv
 
 
 def select_route():
@@ -10,8 +11,9 @@ def select_route():
     Use as following:
     >> route = select_route() 
     '''
-    available_routes = {'1':'home_university_p','2':'university_home_p'}
-    print('\nFormat as key:value')
+    print('\n::::::SELECT ROUTE:::::')
+    available_routes = gv.route_options()
+    print('\nTable of possible options. Format as key:value')
     for k,v in available_routes.items():
         print(k,":",v)
     while True:
@@ -30,8 +32,9 @@ def select_weather():
     Use as following:
     >> cond = select_weather()
     '''
-    possible_cond = {'1':'Light Rain','2':'No Rain','3':'Heavy Rain'}
-    print('\nFormat as key:value')
+    print('\n::::::SELECT WEATHER CONDITION:::::')
+    possible_cond = gv.weather_options()
+    print('\nTable of possible options. Format as key:value')
     for k,v in possible_cond.items():
         print(k,":",v)
     while True:
@@ -64,7 +67,12 @@ def add_data(route,t_begin,t_end,cond):
 
 def main():
     # Route selection process
-    route = select_route()
+    available_routes = gv.route_options()
+    flag = ' '
+    while flag != 'y':
+        route = select_route()
+        print('\nYou selected: ', available_routes[route])
+        flag = input('\nAre you sure this is your route? (type "y" for yes, any other character for "no") : ')
     
     # Initialize and end record.
     input('\nPress enter to start recording.')
@@ -73,12 +81,21 @@ def main():
     t_end = get_time()
     
     # Add weather conditions.
-    cond = select_weather()
+    possible_cond = gv.weather_options()
+    flag = ' '
+    while flag != 'y':
+        cond = select_weather()
+        print('\nYou selected: ', possible_cond[cond])
+        flag = input('\nAre you sure this was the condition? (type "y" for yes, any other character for "no") : ')
+    
+    # Saving the data
+    print('\nSaving the data...')
+    add_data(route,t_begin,t_end,cond)
     
     # Add the data and closure
     print('\nOkay then, we are good to go.')
     print('Closing...')
-    add_data(route,t_begin,t_end,cond)
+    
     print('\nDone.')
 
 
