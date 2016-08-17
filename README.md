@@ -34,6 +34,9 @@ Variable that describes the general weather condition.
 
 ### Scripts
 
+* log_data.sh:
+* log_data.py: script used to log new data into data.csv	
+* get_time.py: contains the functions get_time() and show_timezones()
 * data_cleaning.py: contains the functions load_data() and data_cleaning()
     - **load_data()** reads the data.csv and returns a pandas dataframe.
     - **data_cleaning()** transforms the dataframe from load_data() into a more useful dataset.	
