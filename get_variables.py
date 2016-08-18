@@ -1,5 +1,5 @@
 '''
-Funtions to make available the data for routes and weather conditions. 
+Functions to make available the data for routes and weather conditions. 
 '''
 def route_options():
     available_routes = {'1':'home_university_p','2':'university_home_p'}

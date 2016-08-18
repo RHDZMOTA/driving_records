@@ -23,9 +23,10 @@ def data_cleaning():
    Use as following:
    >> cdata = data_cleaning()
    '''
+   # Not really necesary... 
    data = load_data()
    
    
 
 data = load_data()
-print(data) 
+print(data) 	

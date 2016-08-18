@@ -1,5 +1,6 @@
-#from pandas import dataframe
+from pandas import DataFrame
 from get_time import get_time
+import numpy as np
 import get_variables as gv
 
 
@@ -61,9 +62,13 @@ def add_data(route,t_begin,t_end,cond):
     delta = t1 - t0
     c = cond
     # create dataframe
-    print(r,date,day_week,t0,t1,delta,c)
+    d = {'date':str(date),'day_week':day_week,'id_route':r,'t0':t0,'tf':t1	,'delta':delta,'cond':cond}
+    cols = ['date','day_week','id_route','t0','tf','delta','cond']
+    df = DataFrame(data=d, index=np.arange(1))
+    df = df[cols]
     # add to data.csv file
-    
+    with open('data.csv','a') as f:
+        (df).to_csv(f,header=False,index=False)
 
 def main():
     # Route selection process
@@ -93,10 +98,9 @@ def main():
     add_data(route,t_begin,t_end,cond)
     
     # Add the data and closure
-    print('\nOkay then, we are good to go.')
+    print('\nAlright, we are good to go.')
     print('Closing...')
     
     print('\nDone.')
-
 
 main()
