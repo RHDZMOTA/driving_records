@@ -10,28 +10,27 @@ This instructions are mainly for anyone who easily forgets what he/she has done 
 
 To run this scripts in any android device:
 
-1. Download GNURoot Debian from GooglePlay.
-2. Download GNURoot Octave from GooglePlay.
-3. Open and install the app from step 1. This will install a linux distro (Debian Jessy) with a fake root into Android. 
-4. Open and install the app from step 2. This will provide you with Octave (a MATLAB-like program). 
-5. Close all...
-6. Open the app from step 1 and run _apt-get update_ 
-7. Install python3: _apt-get install python3_
-8. Install pandas and numpy: _pip install numpy_ (and so on...)
-9. Download Termux app from GooglePlay.
-10. Open Termux and type _apt-get update && upgrade_
-11. Install Git: _apt-get install git_
-12. Now you can clone or make git-directories (see "**download or clone this repository**")
-13. Follow the instructions in **"To run in a debian distro (linux)"**.
+  1. Download GNURoot Debian from GooglePlay.
+  2. Download GNURoot Octave from GooglePlay.
+  3. Open and install the app from step 1. This will install a linux distro (Debian Jessy) with a fake root into Android. 
+  4. Open and install the app from step 2. This will provide you with Octave (a MATLAB-like program). 
+  5. Close all...
+  6. Open the app from step 1 and run _apt-get update_ 
+  7. Install python3: _apt-get install python3_
+  8. Install pandas and numpy: _pip install numpy_ (and so on...)
+  9. Download Termux app from GooglePlay.
+  10. Open Termux and type _apt-get update && upgrade_
+  11. Install git in Termux	: _apt-get install git_
+  12. Now you can clone or make git-directories (see "**download or clone this repository**")
+  13. Follow the instructions in **"To run in a debian distro (linux)"**.
 
 Download or clone this repository.
-1. 
+  1. 
 
 To run in a debian distro (linux):
-0. You need installed python3  
-1. Type in console: apt-get update
-2. Go to your directory: cd /go_to_your_directory
-3. Enjoy.
+  1. Type in console: apt-get update
+  2. Go to your directory: cd /go_to_your_directory
+  3. Enjoy.
     - To add new data, type in console: sh ./log_data.sh
     - To see analyitcs: unavailable
     - To ask the neural network for a particular value: unavailable
