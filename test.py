@@ -10,4 +10,5 @@ import matplotlib.pyplot as plt
 data = pd.read_csv('data.csv')
 
 print(data)
+plt.plot(data.t0,data.tf)
 print('All right!')
