@@ -6,7 +6,7 @@ This personal proyect aims to determine the best "driving time" for specific rou
 
 ### Instructions
 
-This instructions are mainly for anyone who easily forgets what he/she has done (myself included). 
+This instructions are mainly for anyone who easily forgets what he/she has done (myself). 
 
 To run this scripts in any android device:
 
@@ -25,17 +25,19 @@ To run this scripts in any android device:
   13. Follow the instructions in **"To run in a debian distro (linux)"**.
 
 Download or clone this repository.
-  1. 
+  1. Type in termial: git clone https://github.com/RHDZMOTA/driving_records.git
 
 To run in a debian distro (linux):
   1. Type in console: apt-get update
   2. Go to your directory: cd /go_to_your_directory
   3. Enjoy.
     - To add new data, type in console: sh ./log_data.sh
-    - To see analyitcs: unavailable
+    - To see analyitcs (simple stats): python3 stats.py
     - To ask the neural network for a particular value: unavailable
     - To see predictions from the neural network: unavailable
 
+NOTE: if matplotlib is not installed, avoid showing graphs in python scripts. 
+ 
 ### Dataset
 
 * **data.csv**: contains the empirical data in a .csv file. 
@@ -59,7 +61,7 @@ The day of the week i.e. _Mon, Tue, Wed, Thu, Fri, Sat, Sun_ --> _0, 1, 2, 3, 4,
 Variable that specifies the route taken.
  
 * **1:home_university_p** route from @rhdzmota's home to ITESO University using 'periferico'.
-* **2:university_home_p** route form ITESOUniverity to @rhdzmota home using 'periférico'.
+* **2:university_home_p** route form ITESO Univerity to @rhdzmota home using 'periférico'.
 * ...
 
 #### Cond
@@ -82,15 +84,13 @@ Variable that describes the general weather condition.
     - *data_cleaning()* transforms the dataframe from load_data() into a more useful dataset.
 
 #### Statistical analysis	
-* **data_analysis.py**: not available
+* **stats.py**: general descriptive stats and visualizations. 
 
 #### Artificial Intelligence 
 * **neural_network.py**: not available
 
 ### To do list
 
-* Complete _add_data()_ function from log_data.py script.
-* Complete _data_cleaning()_ function from data_cleaning.py script
 * Code data_analyisis.py script.
 * Code neural_network.py script.
 
