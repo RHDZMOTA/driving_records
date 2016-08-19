@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 import get_variables as gv
 
 def load():
@@ -84,9 +83,6 @@ def barplot_week(bar_data,k,f):
 
 def main():
     
-    # Close pre-existing figures
-    plt.close("all")
-    
     # Variable for futures figures
     f = 1
     
@@ -142,6 +138,10 @@ def main():
     
     # Visualizations... 
     if flag == 'y':
+        import matplotlib.pyplot as plt
+        
+        # Close pre-existing figures
+        plt.close("all")
         # BarPlot for route
         f = bar_route(route_stats,f)
  
