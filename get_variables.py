@@ -3,7 +3,8 @@ Functions to make available the data for routes and weather conditions.
 '''
 def route_options():
     available_routes = {'1':'home_university_p','2':'university_home_p',
-        '3':'home_atrh_u','4':'atrh_home_u','5':'university_atrh_u'}
+        '3':'home_atrh_u','4':'atrh_home_u','5':'university_atrh_u','6':'home_huerta_u',
+        '7':'huerta_home_u'}
     return available_routes
     
 def weather_options():
