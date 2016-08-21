@@ -1,4 +1,4 @@
-from pandas import DataFrame
+from pandas import DataFrame, read_csv
 from get_time import get_time
 import numpy as np
 import get_variables as gv
@@ -66,9 +66,18 @@ def add_data(route,t_begin,t_end,cond):
     cols = ['date','day_week','id_route','t0','tf','delta','cond']
     df = DataFrame(data=d, index=np.arange(1))
     df = df[cols]
+    print('\nNew data-----------------------------------------------------------------------------')
+    print(df)
+    fl = input('\nAdd this new data? (type "y" for yes.) ')
     # add to data.csv file
-    with open('data.csv','a') as f:
-        (df).to_csv(f,header=False,index=False)
+    if fl == 'y':
+        with open('data.csv','a') as f:
+            (df).to_csv(f,header=False,index=False)
+    else:
+        flg = input('Are you sure you want to discard this data? (type "y" for yes) ')
+        if flg != 'y':
+        	    add_data(route, t_begin, t_end, cond)
+        
 
 def main():
     # Route selection process
@@ -76,10 +85,12 @@ def main():
     flag = ' '
     while flag != 'y':
         route = select_route()
+        print('\n==========================================')
         print('\nYou selected: ', available_routes[route])
         flag = input('\nAre you sure this is your route? (type "y" for yes, any other character for "no") : ')
     
     # Initialize and end record.
+    print('\n==========================================')
     input('\nPress enter to start recording.')
     t_begin = get_time()
     input('\nRecording... Press enter to stop.')
@@ -90,15 +101,29 @@ def main():
     flag = ' '
     while flag != 'y':
         cond = select_weather()
+        print('\n==========================================')
         print('\nYou selected: ', possible_cond[cond])
         flag = input('\nAre you sure this was the condition? (type "y" for yes, any other character for "no") : ')
     
     # Saving the data
-    print('\nSaving the data...')
+    print('\nOkay! All done.')
+    print('\nInitial dataset---------------------------------------------------------------------')
+    data = read_csv('data.csv')
+    print(data)
+    
+    print('\n==========================================')
+    print('\nSaving new data procedure...\n')
     add_data(route,t_begin,t_end,cond)
+    
     
     # Add the data and closure
     print('\nAlright, we are good to go.')
+    print('\nNew dataset-------------------------------------------------------------------------')
+    data = read_csv('data.csv')
+    print(data)
+    
+    print('\n==========================================')
+    input('\nPress enter to close.')
     print('Closing...')
     
     print('\nDone.')
