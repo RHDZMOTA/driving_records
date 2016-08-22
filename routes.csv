@@ -1,0 +1,8 @@
+id_route,route,desc,lat_init,lon_init,lat_end,lon_end,err
+1,home_university_p,,,,,,,
+2,university_home_p,,,,,,,
+3,home_atrh_u,,,,,,,
+4,atrh_home_u,,,,,,,
+5,university_atrh_u,,,,,,,
+6,home_huerta_u,,,,,,,
+7,huerta_home_u,,,,,,,
