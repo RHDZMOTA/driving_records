@@ -17,16 +17,16 @@ def scatter_t0tf(f):
     plt.figure(f)
     data, available_routes, possible_cond = load()
     routes = set(data.id_route)
-    color = ['b','r']
+    #color = iter(cm.rainbow(np.linspace(0, 1, len(routes))))
     for i in routes:
         index = data.id_route == i
         plt.scatter(data.t0[index],
-            data.tf[index], color=color[i-1],alpha=0.7,
+            data.tf[index], color=color_hex(i-1),alpha=0.7,
             label=available_routes[str(i)],s=124,marker='x')
     plt.title('Scatterplot: departure time vs arriving time')
     plt.xlabel('Departure time (h)')
     plt.ylabel('Arrival time (h)')
-    plt.legend(loc='upper right')
+    plt.legend(loc='upper left')
     plt.xlim(0,24)
     plt.ylim(0,24)
     plt.grid()
@@ -38,16 +38,16 @@ def scatter_t0delta(f):
     plt.figure(f)
     data, available_routes, possible_cond = load()
     routes = set(data.id_route)
-    color = ['b','r']
+    #color = iter(cm.rainbow(np.linspace(0, 1, len(routes))))
     for i in routes:
         index = data.id_route == i
         plt.scatter(data.t0[index],
-            data.delta[index], color=color[i-1],alpha=0.7,
-            label=available_routes[str(i)],s=124,marker='x')
+            data.delta[index], color=color_hex(i-1),alpha=0.8,
+            label=available_routes[str(i)],s=160,marker='o')
     plt.title('Scatterplot: departure time vs delta')
     plt.xlabel('Departure time (h)')
     plt.ylabel('delta (h)')
-    plt.legend(loc='upper right')
+    plt.legend(loc='upper left')
     plt.xlim(0,24)
     plt.ylim(0,1.2)
     plt.grid()
@@ -88,11 +88,6 @@ def main():
     
     # Load data
     data, available_routes, possible_cond = load()
-    
-    print('\n*****************DESCRIPTIVE STATS*****************\n')
-    print('This program shows basic statistics and optional visualizations...')
-    print('___________________________________________________')
-    flag = input('Show graphs? (type "y" for yes): ')
 
     # DESCRIPTIVE STATS
     # Just basic statistics and visualizations. 
@@ -134,14 +129,12 @@ def main():
                 ignore_index=True)
         print(weekday_stats)
         if flag == 'y':
+            # barplot week
             f = barplot_week(weekday_stats,available_routes[str(j)],f)
     
     # Visualizations... 
     if flag == 'y':
-        import matplotlib.pyplot as plt
         
-        # Close pre-existing figures
-        plt.close("all")
         # BarPlot for route
         f = bar_route(route_stats,f)
  
@@ -153,5 +146,17 @@ def main():
         
         # Show'em all
         plt.show()
+
+
+print('\n*****************DESCRIPTIVE STATS*****************\n')
+print('This program shows basic statistics and optional visualizations...')
+print('___________________________________________________')
+flag = input('Show graphs? (type "y" for yes): ')
+if flag == 'y':
+    import matplotlib.pyplot as plt
+    import matplotlib.cm as cm
+    from color_hex import color_hex
+    # Close pre-existing figures
+    plt.close("all")
 
 main()
