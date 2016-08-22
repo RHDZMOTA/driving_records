@@ -122,7 +122,7 @@ def main():
     data = read_csv('data.csv')
     print(data)
     
-    print('\n==========================================')
+    print('\n==========================================')	
     input('\nPress enter to close.')
     print('Closing...')
     
