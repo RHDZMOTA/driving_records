@@ -91,7 +91,10 @@ Variable that describes the general weather condition.
 
 ### To do list
 
-* Code data_analyisis.py script.
+* Code encryption file and functions (from a given ke and input, return the encrypted data).
+* Modify log_data.sh and log_data.py to automatically start to record data when exiting a given area defined by each route. Implement the log of lon lat and alt.
+* Visualization for pos, velocity and acceleration. Investigate how to interpret the geo coord.  
+* Code data_analyisis.py script taking into account the extra information for each route. 
 * Code neural_network.py script.
 
 
