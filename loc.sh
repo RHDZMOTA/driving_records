@@ -13,7 +13,7 @@ do
     loc=$(termux-location)
 
     # Save the date and time in variables
-    day=$(date "+%Y-%m-%d")
+    day=$(date "+%d-%m-%Y")
     time=$(date "+%H:%M:%S")
     
     # Save the relevat info. in loc
