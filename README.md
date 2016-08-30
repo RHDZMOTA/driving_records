@@ -2,7 +2,7 @@
 
 [proyect in current development]
 
-This personal proyect aims to determine the best "driving time" for specific routes by using empirical data feed to a simple neural netrwork. 
+This personal project aims to determine the best "driving time" for specific routes by using empirical data feed to a simple neural netrwork. 
 
 ### Instructions
 
